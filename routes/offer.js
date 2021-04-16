@@ -25,7 +25,6 @@ router.post("/offer/publish", isAuthenticated, async (req, res) => {
       color,
       location,
     } = req.fields;
-    // Envoyer les photos vers Cloudinary
     // Créer notre nouvelle offre
     if (description.length <= 500 && name.length <= 50 && price < 10000) {
       const newOffer = new Offer({
@@ -193,9 +192,9 @@ router.delete("/offer/delete", isAuthenticated, async (req, res) => {
   }
 });
 
-router.get("/offer", isAuthenticated, async (req, res) => {
+router.get("/offer/:id", isAuthenticated, async (req, res) => {
   try {
-    const offer = await Offer.findById(req.query.id).populate(
+    const offer = await Offer.findById(req.params.id).populate(
       "owner",
       "account"
     );
