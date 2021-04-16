@@ -192,9 +192,9 @@ router.delete("/offer/delete", isAuthenticated, async (req, res) => {
   }
 });
 
-router.get("/offer", async (req, res) => {
+router.get("/offer/:id", async (req, res) => {
   try {
-    const offer = await Offer.findById(req.query.id).populate(
+    const offer = await Offer.findById(req.params.id).populate(
       "owner",
       "account"
     );
