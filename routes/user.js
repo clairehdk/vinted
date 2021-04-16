@@ -12,9 +12,9 @@ const Offer = require("../models/Offer");
 // Configuration cloudinary
 
 cloudinary.config({
-  cloud_name: "dibnkdlfo",
-  api_key: "746126567576122",
-  api_secret: "c2Iv_OBEntZ-UZYKahfefy2gQQ4",
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.CLOUD_KEY,
+  api_secret: process.env.CLOUD_SECRET,
 });
 
 // INSCRIPTION
