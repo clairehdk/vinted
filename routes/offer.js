@@ -192,16 +192,20 @@ router.delete("/offer/delete", isAuthenticated, async (req, res) => {
   }
 });
 
-// router.get("/offer/:id", async (req, res) => {
-//   try {
-//     const offer = await Offer.findById(req.params.id).populate(
-//       "owner",
-//       "account.username"
-//     );
-//     res.json(offer);
-//   } catch (error) {
-//     res.status(400).json({ error: error.message });
-//   }
-// });
+router.get("/offer/:id", async (req, res) => {
+  try {
+    // const offer = await Offer.findById(req.params.id).populate(
+    //   "owner",
+    //   "account.username"
+    // );
+    const offer = await Offer.findById(req.params.id).populate({
+      path: "owner",
+      select: "account.username account.phone account.avatar",
+    });
+    res.json(offer);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
 
 module.exports = router;
