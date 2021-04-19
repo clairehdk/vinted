@@ -200,7 +200,7 @@ router.get("/offer/:id", async (req, res) => {
     // );
     const offer = await Offer.findById(req.params.id).populate({
       path: "owner",
-      select: "account.username account.phone account.avatar",
+      select: "account.username",
     });
     res.json(offer);
   } catch (error) {
