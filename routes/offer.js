@@ -196,7 +196,7 @@ router.get("/offer/:id", async (req, res) => {
   try {
     const offer = await Offer.findById(req.params.id).populate(
       "owner",
-      "account"
+      "account.username"
     );
     res.json(offer);
   } catch (error) {
