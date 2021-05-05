@@ -45,9 +45,6 @@ router.post("/offer/publish", isAuthenticated, async (req, res) => {
             color,
           },
           {
-            etat,
-          },
-          {
             location,
           },
         ],
