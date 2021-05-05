@@ -121,7 +121,7 @@ router.get("/offers", async (req, res) => {
     // const paging = Number(page - 1) * limit;
 
     let results = await Offer.find(filters)
-      .select("product_name product_price")
+      .select("product_name product_price product_image")
       .populate("owner", "account _id")
       .sort(sorting)
       .skip(page > 1 ? (page - 1) * Number(limit) : 0)
