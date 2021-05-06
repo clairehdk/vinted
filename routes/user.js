@@ -25,15 +25,15 @@ router.post("/user/signup", async (req, res) => {
     const user = await User.findOne({ email: email });
     if (!user) {
       if (username && password) {
-        if (req.files.avatar) {
-          // Envoi de la photo vers Cloudinary
-          let pictureToUpload = req.files.avatar.path;
-          // Récupération de l'objet photo dans la variable result
-          const result = await cloudinary.uploader.upload(pictureToUpload, {
-            folder: "/vinted/offers",
-          });
-          newUser.account.avatar = result;
-        }
+        // if (req.files.avatar) {
+        //   // Envoi de la photo vers Cloudinary
+        //   let pictureToUpload = req.files.avatar.path;
+        //   // Récupération de l'objet photo dans la variable result
+        //   const result = await cloudinary.uploader.upload(pictureToUpload, {
+        //     folder: "/vinted/offers",
+        //   });
+        //   newUser.account.avatar = result;
+        // }
         const salt = uid2(16);
         const hash = SHA256(salt + password).toString(encBase64);
         const token = uid2(64);
@@ -43,7 +43,7 @@ router.post("/user/signup", async (req, res) => {
           account: {
             username: username,
             phone: phone,
-            avatar: result.secure_url,
+            // avatar: result.secure_url,
           },
           token: token,
           hash: hash,
