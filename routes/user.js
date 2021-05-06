@@ -31,7 +31,7 @@ router.post("/user/signup", async (req, res) => {
         const result = await cloudinary.uploader.upload(pictureToUpload, {
           folder: "/vinted/offers",
         });
-        newUser.account.avatar = avatar;
+        newUser.account.avatar = result;
       }
       if (username && password) {
         const salt = uid2(16);
