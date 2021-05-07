@@ -85,7 +85,7 @@ router.post("/user/login", async (req, res) => {
           res.status(401).json("Unauthorized");
         }
       } else {
-        res.status(400).json("Merci de renseigner les champs manquants");
+        res.status(400).json("Merci de renseigner le(s) champ(s) manquant(s).");
       }
     } else {
       res.status(400).json("L'email que vous avez rentré n'existe pas");
