@@ -24,7 +24,7 @@ router.post("/user/signup", async (req, res) => {
     const { email, username, phone, password } = req.fields;
     const user = await User.findOne({ email: email });
     if (!user) {
-      if (username && password) {
+      if (username && password && email) {
         // if (req.files.avatar) {
         //   // Envoi de la photo vers Cloudinary
         //   let pictureToUpload = req.files.avatar.path;
@@ -56,9 +56,7 @@ router.post("/user/signup", async (req, res) => {
           account: newUser.account,
         });
       } else {
-        res
-          .status(400)
-          .json("Vous devez renseigner un username / mot de passe.");
+        res.status(400).json("Merci de renseigner le(s) champ(s) manquant(s).");
       }
     } else {
       res.status(409).json("Cet email est déjà lié à un compte");
