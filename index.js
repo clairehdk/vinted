@@ -1,9 +1,9 @@
+require("dotenv").config();
 const express = require("express");
 const formidable = require("express-formidable");
 const mongoose = require("mongoose");
-const cloudinary = require("cloudinary").v2;
+// const cloudinary = require("cloudinary").v2;
 const cors = require("cors");
-require("dotenv").config();
 
 //Cette ligne fait bénifier de CORS à toutes les requêtes de notre serveur
 const app = express();
@@ -16,11 +16,11 @@ mongoose.connect(process.env.MONGODB_URI, {
   useCreateIndex: true,
 });
 
-cloudinary.config({
-  cloud_name: process.env.CLOUD_NAME,
-  api_key: process.env.CLOUD_API,
-  api_secret: process.env.CLOUD_SECRET,
-});
+// cloudinary.config({
+//   cloud_name: process.env.CLOUD_NAME,
+//   api_key: process.env.CLOUD_API,
+//   api_secret: process.env.CLOUD_SECRET,
+// });
 // Importer les routes
 const userRoutes = require("./routes/user");
 const offerRoutes = require("./routes/offer");

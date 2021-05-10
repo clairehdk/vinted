@@ -6,7 +6,7 @@ const isAuthenticated = require("../middlewares/isAuthenticated");
 
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
-  api_key: process.env.CLOUD_API,
+  api_key: process.env.CLOUD_KEY,
   api_secret: process.env.CLOUD_SECRET,
 });
 
@@ -14,6 +14,7 @@ const User = require("../models/User");
 const Offer = require("../models/Offer");
 
 router.post("/offer/publish", isAuthenticated, async (req, res) => {
+  console.log("Hello");
   try {
     const {
       name,
@@ -51,15 +52,12 @@ router.post("/offer/publish", isAuthenticated, async (req, res) => {
         owner: req.user,
       });
       let pictureToUpload = req.files.picture.path;
-      const result = await cloudinary.uploader.unsigned_upload(
-        pictureToUpload,
-        "vinted_upload",
-        {
-          folder: `api/vinted/offers/${newOffer._id}`,
-          public_id: "preview",
-          cloud_name: "my-project-vinted",
-        }
-      );
+      const result = await cloudinary.uploader.upload(pictureToUpload, {
+        folder: `api/vinted/offers/${newOffer._id}`,
+        public_id: "preview",
+      });
+
+      console.log(result);
       newOffer.product_image = result;
       await newOffer.save();
       res.status(200).json({
@@ -78,6 +76,7 @@ router.post("/offer/publish", isAuthenticated, async (req, res) => {
       res.status(401).json("Vous ne respectez pas les règles.");
     }
   } catch (error) {
+    console.log(error.message);
     res.status(400).json({ error: error.message });
   }
 });
