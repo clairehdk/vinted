@@ -5,9 +5,9 @@ const cloudinary = require("cloudinary").v2;
 const isAuthenticated = require("../middlewares/isAuthenticated");
 
 cloudinary.config({
-  cloud_name: process.env.CLOUD_NAME,
-  api_key: process.env.CLOUD_KEY,
-  api_secret: process.env.CLOUD_SECRET,
+  cloud_name: "dibnkdlfo",
+  api_key: "746126567576122",
+  api_secret: "c2Iv_OBEntZ-UZYKahfefy2gQQ4",
 });
 
 const User = require("../models/User");
@@ -55,8 +55,11 @@ router.post("/offer/publish", isAuthenticated, async (req, res) => {
       const result = await cloudinary.uploader.upload(pictureToUpload, {
         folder: `api/vinted/offers/${newOffer._id}`,
         public_id: "preview",
+        // cloud_name: "my-project-vinted",
       });
+      //   "vinted_upload",
 
+      // );
       console.log(result);
       newOffer.product_image = result;
       await newOffer.save();
@@ -73,7 +76,7 @@ router.post("/offer/publish", isAuthenticated, async (req, res) => {
         },
       });
     } else {
-      res.status(400).json("Vous ne respectez pas les règles.");
+      res.status(401).json("Vous ne respectez pas les règles.");
     }
   } catch (error) {
     console.log(error.message);
