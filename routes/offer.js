@@ -75,7 +75,7 @@ router.post("/offer/publish", isAuthenticated, async (req, res) => {
         },
       });
     } else {
-      res.status(400).json("Vous ne respectez pas les règles.");
+      res.status(401).json("Vous ne respectez pas les règles.");
     }
   } catch (error) {
     res.status(400).json({ error: error.message });
