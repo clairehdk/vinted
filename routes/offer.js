@@ -1,8 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const cloudinary = require("cloudinary").v2;
+const cors = require("cors");
 
 const isAuthenticated = require("../middlewares/isAuthenticated");
+app.use(cors());
 
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
