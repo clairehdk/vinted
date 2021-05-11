@@ -216,12 +216,11 @@ router.delete("/offer/delete/:id", isAuthenticated, async (req, res) => {
 
 router.post("/payment", async (req, res) => {
   try {
-    const stripeToken = req.fields.stripeToken;
+    const { name, amount, currency, stripeToken } = req.fields;
     const response = await stripe.charges.create({
-      amount: req.fields.amount,
-      currency: req.fields.currency,
-      name: req.fields.name,
-      // On envoie ici le token
+      amount: Number(amount),
+      currency,
+      name,
       source: stripeToken,
     });
     console.log(response.status);
