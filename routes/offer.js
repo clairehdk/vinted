@@ -10,6 +10,7 @@ cloudinary.config({
   api_secret: process.env.CLOUD_SECRET,
 });
 
+const stripe = require("stripe")(process.env.STRIPE_SK);
 const User = require("../models/User");
 const Offer = require("../models/Offer");
 
@@ -213,11 +214,30 @@ router.delete("/offer/delete/:id", isAuthenticated, async (req, res) => {
   }
 });
 
+router.post("/payment", async (req, res) => {
+  try {
+    const stripeToken = req.fields.stripeToken;
+    const response = await stripe.charges.create({
+      amount: req.fields.amount,
+      currency: req.fields.currency,
+      name: req.fields.name,
+      // On envoie ici le token
+      source: stripeToken,
+    });
+    console.log(response.status);
+    res.json(response);
+  } catch (e) {
+    console.log(e.message);
+  }
+  // TODO
+  // Sauvegarder la transaction dans une BDD MongoDB
+});
+
 router.get("/offer/:id", async (req, res) => {
   try {
     const offer = await Offer.findById(req.params.id).populate(
       "owner",
-      "account"
+      "account email"
     );
     res.json(offer);
   } catch (error) {
