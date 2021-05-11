@@ -218,11 +218,12 @@ router.delete("/offer/delete/:id", isAuthenticated, async (req, res) => {
 
 router.post("/payment", async (req, res) => {
   try {
-    const { name, amount, currency, stripeToken } = req.fields;
+    const { currency, stripeToken } = req.fields;
+    const { name, price } = req.params;
     const response = await stripe.charges.create({
-      amount: Number(amount),
-      currency,
-      name,
+      amount: price,
+      currency: currency,
+      description: `Paiement vinted pour : ${name}`,
       source: stripeToken,
     });
     console.log(response.status);
