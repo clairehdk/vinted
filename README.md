@@ -1,10 +1,10 @@
-## VINTED BACKEND
+### VINTED BACKEND
 
 Vinted est un projet que j'ai réalisé au cours de ma formation au Réacteur, qui consistait à réaliser une réplique du site du même nom, qui consiste en la vente de vetement d'occasion.
 
 Ce repo est la partie back-end de mon projet, réalisé avec **Javascript**.
 
-# Outils
+## Outils
 
 **Visual Studio Code** : Editeur de code source
 
@@ -12,8 +12,9 @@ Ce repo est la partie back-end de mon projet, réalisé avec **Javascript**.
 
 **MongoDB Atlas** : Base de données
 
-# Packages utilisés
+## Packages utilisés
 
+- **NPM** : Initialisation du projet
 - **Stripe** : Achat et paiement d'un produit
 - **Crypto Js** : Encryptage du mot de passe
 - **Cloudinary** : Hebergement des photos
@@ -22,4 +23,10 @@ Ce repo est la partie back-end de mon projet, réalisé avec **Javascript**.
 - **Express** : Création du serveur
 - **Express Formidable** : Traitement des requêtes utilisant la méthode HTTP POST
 - **Mongoose** : Manipulation de bases de données MongoDB
+
+## Fonctionnalités 
+
+# Utilisateur
+
+
 
