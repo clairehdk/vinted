@@ -36,6 +36,15 @@ Ce repo est la partie back-end de mon projet.
 
 ### Utilisateur
 
+- Inscription
+- Connexion
 
+### Offres
+
+- Publication d'une offre
+- Affiichage de toutes les offres, avec mise en place de filtres
+- Modifier une offre
+- Supprimer une offre
+- Récupérer les offres créées par un utilisateur
 
 
