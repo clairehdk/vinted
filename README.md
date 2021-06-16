@@ -42,7 +42,7 @@ Exemple : Publication d'une offre, modification d'une offre, suppression d'une o
 ## Modèles MongoDB
 
 * User 
-* Offres
+* Offre
 
 ## Fonctionnalités 
 
