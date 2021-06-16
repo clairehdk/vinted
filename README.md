@@ -48,15 +48,18 @@ Exemple : Publication d'une offre, modification d'une offre, suppression d'une o
 
 ### Utilisateur
 
-- Inscription
-- Connexion
+* Inscription
+* Connexion
 
 ### Offres
 
-- Publication d'une offre
-- Affiichage de toutes les offres, avec mise en place de filtres
-- Modifier une offre
-- Supprimer une offre
-- Récupérer les offres créées par un utilisateur
+* Publication d'une offre
+* Affichage de toutes les offres, avec mise en place de filtres
+  * Recherche par nom
+  * Tri par prix (minimum / maximum , croissant / decroissant )
+  * Pagination
+* Modifier une offre
+* Supprimer une offre
+* Récupérer les offres créées par un utilisateur
 
 
