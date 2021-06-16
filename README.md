@@ -10,6 +10,8 @@ Ce repo est la partie back-end de mon projet, réalisé avec **Javascript**.
 
 **Heroku** : Herbergement du serveur
 
+**MongoDB Atlas** : Base de données
+
 # Packages utilisés
 
 - **Stripe** : Achat et paiement d'un produit
