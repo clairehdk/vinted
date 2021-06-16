@@ -6,13 +6,15 @@ Ce repo est la partie back-end de mon projet.
 
 ## Langages
 
-**Node JS**
+**Javascript**
 
 **HTML 5**
 
 **CSS 3**
 
 ## Outils
+
+**Node JS** : Plateforme de traitement de requêtes Javascript
 
 **Visual Studio Code** : Editeur de code source
 
