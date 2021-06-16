@@ -7,6 +7,7 @@ Ce repo est la partie back-end de mon projet, réalisé avec **Javascript**.
 # Outils
 
 **Visual Studio Code** : Editeur de code source
+
 **Heroku** : Herbergement du serveur
 
 # Packages utilisés
