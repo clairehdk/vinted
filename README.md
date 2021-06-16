@@ -6,11 +6,12 @@ Ce repo est la partie back-end de mon projet, réalisé avec **Javascript**.
 
 # Outils
 
-**Visual Studio Code** : 
+**Visual Studio Code** : Editeur de code source
+**Heroku** : Herbergement du serveur
 
 # Packages utilisés
 
-- **Stripe** : Achat et le paiement d'un produit
+- **Stripe** : Achat et paiement d'un produit
 - **Crypto Js** : Encryptage du mot de passe
 - **Cloudinary** : Hebergement des photos
 - **Cors** : Autorisation des demandes exterieures 
