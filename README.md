@@ -34,6 +34,16 @@ Ce repo est la partie back-end de mon projet.
 - **Express Formidable** : Traitement des requêtes utilisant la méthode HTTP POST
 - **Mongoose** : Manipulation de bases de données MongoDB
 
+## Middlewares
+
+Création d'un middleware permettant de vérifier que l'utilisateur est authentifié afin de le laisser effectuer certaines actions s'il est connecté, ou de le rediriger vers l'inscription/connexion.
+Exemple : Publication d'une offre, modification d'une offre, suppression d'une offre.
+
+## Modèles MongoDB
+
+* User 
+* Offres
+
 ## Fonctionnalités 
 
 ### Utilisateur
